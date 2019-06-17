@@ -1,12 +1,15 @@
 module.exports = {
   succeed,
   fail,
-  repair,
+  repair
   // get stretch
 };
 
 function succeed(item) {
-  return { ...item, durability: 100 };
+  if (item.enhancement < 20) {
+    item.enhancement++;
+  }
+  return { ...item };
 }
 
 function fail(item) {
@@ -14,7 +17,7 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  return { ...item, durability: 100 };
 }
 
 // function get(item) {
